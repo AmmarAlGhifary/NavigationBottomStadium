@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NavigationBottomStadium</string>
+    <string name="title_stadium">Stadium</string>
+    <string name="title_favorite">Favorite Stadium</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
