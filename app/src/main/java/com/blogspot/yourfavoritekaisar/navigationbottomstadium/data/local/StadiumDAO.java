@@ -24,4 +24,7 @@ public interface StadiumDAO {
 
     @Query("SELECT * FROM stadium ORDER BY strStadium ASC")
     List<StadiumData> selectFavorite();
+
+    @Query("SELECT * FROM STADIUM WHERE strStadium = :stadium")
+    StadiumData selectedItemSearch(String stadium);
 }

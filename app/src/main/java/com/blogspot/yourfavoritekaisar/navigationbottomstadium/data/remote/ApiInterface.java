@@ -12,4 +12,5 @@ public interface ApiInterface {
     Call<StadiumResponse> getAllTeams(
             @Query("s") String s, @Query("c") String c
     );
+
 }

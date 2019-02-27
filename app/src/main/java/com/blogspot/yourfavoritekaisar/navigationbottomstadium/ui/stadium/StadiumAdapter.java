@@ -45,8 +45,8 @@ public class StadiumAdapter extends RecyclerView.Adapter<StadiumAdapter.ViewHold
         final StadiumData stadiumData = stadiumDataList.get(i);
 
         RequestOptions options = new RequestOptions().error(R.drawable.ic_broken_image_black_24dp).placeholder(R.drawable.ic_error_black_24dp);
-        Glide.with(context).load(stadiumData.getStrTeamBadge()).apply(options).into(viewHolder.imgLogoTeam);
-        viewHolder.txtNameTeam.setText(stadiumData.getStrTeam());
+        Glide.with(context).load(stadiumData.getStrStadiumThumb()).apply(options).into(viewHolder.imgLogoTeam);
+        viewHolder.txtNameTeam.setText(stadiumData.getStrStadium());
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -12,6 +12,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.blogspot.yourfavoritekaisar.navigationbottomstadium.R;
@@ -21,6 +23,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -34,6 +37,10 @@ public class FragmentStadium extends Fragment implements StadiumContract.view {
     @BindView(R.id.swipe_refresh)
     SwipeRefreshLayout swipeRefresh;
     Unbinder unbinder;
+    @BindView(R.id.edtSearch)
+    EditText edtSearch;
+    @BindView(R.id.btnSearch)
+    ImageButton btnSearch;
     private ProgressDialog progressDialog;
     private StadiumPresenter presenter = new StadiumPresenter(this);
 
@@ -57,7 +64,19 @@ public class FragmentStadium extends Fragment implements StadiumContract.view {
                 presenter.getDataListItem();
             }
         });
+
+        setUpUIListener();
         return view;
+    }
+
+    private void setUpUIListener() {
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String searchText = edtSearch.getText().toString().toLowerCase();
+                presenter.getSearchStadium(searchText);
+            }
+        });
     }
 
     @Override
@@ -97,4 +116,5 @@ public class FragmentStadium extends Fragment implements StadiumContract.view {
         super.onDestroyView();
         unbinder.unbind();
     }
+
 }
